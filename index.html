@@ -389,95 +389,142 @@
                     </div>
                 </div>
 
-                <!-- TAB 3: PRODUKSI -->
+                                <!-- TAB 3: PRODUKSI -->
                 <div id="tab-produksi" class="tab-content space-y-8">
                     <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
                         <div class="xl:col-span-2 space-y-6">
-                            <div class="bg-dark-900 border border-slate-800 p-8 rounded-3xl">
-                                <div class="flex items-center justify-between mb-8">
-                                    <h3 class="text-xl font-bold">Simulator & Blending Batch</h3>
-                                    <div class="flex gap-2">
-                                        <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-bold text-slate-400">ID BATCH: B-2023-1012-001</span>
+                            <!-- Production Configuration Card -->
+                            <div class="bg-dark-900 border border-slate-800 p-8 rounded-3xl shadow-xl">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white">Konfigurasi Feed & Output</h3>
+                                        <p class="text-xs text-slate-500 mt-1">Tentukan jenis masukan bahan dan target hasil jadi</p>
+                                    </div>
+                                    <div class="flex bg-dark-950 p-1.5 rounded-2xl border border-slate-800 w-fit">
+                                        <button onclick="setProductionMode('single')" id="btn-mode-single" class="px-5 py-2 text-[10px] font-bold rounded-xl transition-all bg-emerald-500 text-white shadow-lg">SINGLE FEED</button>
+                                        <button onclick="setProductionMode('multi')" id="btn-mode-multi" class="px-5 py-2 text-[10px] font-bold rounded-xl transition-all text-slate-500 hover:text-slate-300">MULTI FEED (BLEND)</button>
                                     </div>
                                 </div>
                                 
-                                <div class="space-y-6">
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Nama Batch / Target Grade</label>
-                                            <input type="text" placeholder="e.g: Biji PP Injection Hitam Grade A" class="w-full bg-dark-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none">
+                                <div class="space-y-8">
+                                    <!-- INPUT SECTION -->
+                                    <div class="space-y-4">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <div class="w-1 h-4 bg-emerald-500 rounded-full"></div>
+                                            <h4 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Tahap 1: Input Bahan Baku</h4>
                                         </div>
-                                        <div>
-                                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Target Berat Total (kg)</label>
-                                            <input type="number" placeholder="1000" class="w-full bg-dark-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none">
+
+                                        <!-- Container Single Feed -->
+                                        <div id="input-single" class="grid grid-cols-1 md:grid-cols-12 gap-4 bg-dark-950 p-6 rounded-2xl border border-slate-800/50">
+                                            <div class="md:col-span-8">
+                                                <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase">Pilih Bahan Masukan</label>
+                                                <select class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none">
+                                                    <option>PP Gilingan Bening Super (Stok: 5.2 Ton)</option>
+                                                    <option>HDPE Crush Natural (Stok: 3.1 Ton)</option>
+                                                    <option>LDPE Avalan Film (Stok: 1.5 Ton)</option>
+                                                </select>
+                                            </div>
+                                            <div class="md:col-span-4">
+                                                <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase">Berat Total (kg)</label>
+                                                <div class="relative">
+                                                    <input type="number" placeholder="1000" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-right pr-10 focus:border-emerald-500 focus:outline-none">
+                                                    <span class="absolute right-4 top-3 text-[10px] text-slate-500 font-bold">KG</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Container Multi Feed (Blending) -->
+                                        <div id="input-multi" class="hidden space-y-3 bg-dark-950 p-6 rounded-2xl border border-slate-800/50">
+                                            <div class="grid grid-cols-12 gap-4 mb-2 text-[10px] font-bold text-slate-600 uppercase px-2">
+                                                <div class="col-span-7">Komposisi Bahan</div>
+                                                <div class="col-span-3 text-center">Porsi (%)</div>
+                                                <div class="col-span-2"></div>
+                                            </div>
+                                            <!-- Row 1 -->
+                                            <div class="grid grid-cols-12 gap-4 items-center">
+                                                <div class="col-span-7">
+                                                    <select class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-xs focus:border-emerald-500 outline-none">
+                                                        <option>PP Gilingan Hitam</option>
+                                                        <option>PP Karung Avalan</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-3">
+                                                    <input type="number" value="60" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-xs text-center outline-none">
+                                                </div>
+                                                <div class="col-span-2 text-right">
+                                                    <button class="text-rose-500 hover:text-rose-400"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                                </div>
+                                            </div>
+                                            <!-- Row 2 -->
+                                            <div class="grid grid-cols-12 gap-4 items-center">
+                                                <div class="col-span-7">
+                                                    <select class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-xs focus:border-emerald-500 outline-none">
+                                                        <option>PP Karung Avalan</option>
+                                                        <option>PP Gilingan Hitam</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-span-3">
+                                                    <input type="number" value="40" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-xs text-center outline-none">
+                                                </div>
+                                                <div class="col-span-2 text-right">
+                                                    <button class="text-emerald-500 hover:text-emerald-400"><i data-lucide="plus-circle" class="w-4 h-4"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <!-- Multi-Material Mix -->
-                                    <div class="p-6 bg-dark-950 border border-slate-800 rounded-2xl space-y-4">
-                                        <p class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Resep Komposisi Bahan</p>
-                                        <!-- Material 1 -->
-                                        <div class="grid grid-cols-12 gap-4 items-center">
-                                            <div class="col-span-6">
-                                                <select class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs">
-                                                    <option>PP Gilingan Hitam (Stok: 5.4 Ton)</option>
-                                                    <option>PP Avalan Karung (Stok: 2.1 Ton)</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-span-3">
-                                                <div class="relative">
-                                                    <input type="number" value="65" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-right pr-6">
-                                                    <span class="absolute right-2 top-2 text-[10px] text-slate-500">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-span-3 text-xs text-slate-400 font-mono italic">~ 650 kg</div>
+                                    <!-- OUTPUT SECTION -->
+                                    <div class="space-y-4 pt-4 border-t border-slate-800/50">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <div class="w-1 h-4 bg-blue-500 rounded-full"></div>
+                                            <h4 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Tahap 2: Hasil Jadi (Output)</h4>
                                         </div>
-                                        <!-- Material 2 -->
-                                        <div class="grid grid-cols-12 gap-4 items-center">
-                                            <div class="col-span-6">
-                                                <select class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs">
-                                                    <option>PP Avalan Karung (Stok: 2.1 Ton)</option>
-                                                    <option>PP Gilingan Hitam (Stok: 5.4 Ton)</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-span-3">
-                                                <div class="relative">
-                                                    <input type="number" value="34" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-right pr-6">
-                                                    <span class="absolute right-2 top-2 text-[10px] text-slate-500">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-span-3 text-xs text-slate-400 font-mono italic">~ 340 kg</div>
-                                        </div>
-                                        <!-- Additives -->
-                                        <div class="grid grid-cols-12 gap-4 items-center">
-                                            <div class="col-span-6">
-                                                <select class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs">
-                                                    <option>Masterbatch Karbon Hitam</option>
-                                                    <option>UV Stabilizer</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-span-3">
-                                                <div class="relative">
-                                                    <input type="number" value="1" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-right pr-6">
-                                                    <span class="absolute right-2 top-2 text-[10px] text-slate-500">%</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-span-3 text-xs text-slate-400 font-mono italic">~ 10 kg</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="bg-emerald-500/5 border border-emerald-500/20 p-4 rounded-2xl flex items-center justify-between">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
-                                                <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-tighter">Estimasi HPP Bahan</p>
-                                                <h4 class="text-xl font-bold">Rp 8.940 <span class="text-xs text-slate-500 font-normal">/ kg output</span></h4>
+                                                <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase">Target Grade Hasil</label>
+                                                <select id="target-grade" class="w-full bg-dark-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-blue-500 focus:outline-none font-bold text-blue-400">
+                                                    <option>PILIH GRADE SESUAI HASIL</option>
+                                                    <option>Biji PP Super Bening (Film)</option>
+                                                    <option>Biji PP Injection Warna A</option>
+                                                    <option>Biji PP Hitam Grade B</option>
+                                                    <option>Biji HDPE Blow Natural</option>
+                                                </select>
                                             </div>
-                                            <i data-lucide="calculator" class="text-emerald-500/50"></i>
+                                            <div class="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-4 flex flex-col justify-center">
+                                                <div class="flex justify-between items-center">
+                                                    <span class="text-[10px] font-bold text-blue-400 uppercase">Estimasi Hasil (Yield 96%)</span>
+                                                    <span id="yield-display" class="text-lg font-bold text-white font-mono">0 kg</span>
+                                                </div>
+                                                <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+                                                    <div class="bg-blue-500 h-full w-[96%]"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl shadow-lg shadow-emerald-500/30">Mulai Proses Produksi</button>
+                                    </div>
+
+                                    <!-- MACHINE PARAMETERS & START -->
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-end pt-4">
+                                        <div class="col-span-1">
+                                            <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase">Lini Mesin</label>
+                                            <select class="w-full bg-dark-950 border border-slate-800 rounded-lg px-3 py-2 text-xs outline-none">
+                                                <option>EXTRUDER 01</option>
+                                                <option>EXTRUDER 02</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <label class="block text-[10px] font-bold text-slate-500 mb-2 uppercase">Suhu (°C)</label>
+                                            <input type="number" value="230" class="w-full bg-dark-950 border border-slate-800 rounded-lg px-3 py-2 text-xs outline-none font-mono">
+                                        </div>
+                                        <div class="col-span-2">
+                                            <button class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg shadow-emerald-900/20 active:scale-[0.98] flex items-center justify-center gap-2">
+                                                <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                                                MULAI PROSES SEKARANG
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                             
                             <div class="bg-dark-900 border border-slate-800 rounded-3xl overflow-hidden">
                                 <div class="p-6 border-b border-slate-800 bg-slate-900/50">
@@ -798,7 +845,7 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        function switchTab(tabId) {
+                function switchTab(tabId) {
             // Hide all contents
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
@@ -826,6 +873,45 @@
             // Re-render icons if needed (though already initialized)
             lucide.createIcons();
         }
+
+        function setProductionMode(mode) {
+            const singleSection = document.getElementById('input-single');
+            const multiSection = document.getElementById('input-multi');
+            const btnSingle = document.getElementById('btn-mode-single');
+            const btnMulti = document.getElementById('btn-mode-multi');
+            const targetGrade = document.getElementById('target-grade');
+
+            if (mode === 'single') {
+                singleSection.classList.remove('hidden');
+                multiSection.classList.add('hidden');
+                
+                // Style buttons
+                btnSingle.className = "px-5 py-2 text-[10px] font-bold rounded-xl transition-all bg-emerald-500 text-white shadow-lg";
+                btnMulti.className = "px-5 py-2 text-[10px] font-bold rounded-xl transition-all text-slate-500 hover:text-slate-300";
+                
+                // Update target grade options for single feed (typically high grade)
+                targetGrade.innerHTML = `
+                    <option>Biji PP Super Bening (Film)</option>
+                    <option>Biji HDPE Blow Natural</option>
+                `;
+            } else {
+                singleSection.classList.add('hidden');
+                multiSection.classList.remove('hidden');
+                
+                // Style buttons
+                btnMulti.className = "px-5 py-2 text-[10px] font-bold rounded-xl transition-all bg-emerald-500 text-white shadow-lg";
+                btnSingle.className = "px-5 py-2 text-[10px] font-bold rounded-xl transition-all text-slate-500 hover:text-slate-300";
+                
+                // Update target grade options for multi feed (typically blending/grade B)
+                targetGrade.innerHTML = `
+                    <option>Biji PP Injection Warna A</option>
+                    <option>Biji PP Hitam Grade B</option>
+                    <option>Biji PP Custom Mix</option>
+                `;
+            }
+            lucide.createIcons();
+        }
+
     </script>
 </body>
 </html>
