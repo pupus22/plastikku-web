@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastikku - Solusi Masa Depan Plastik Berkelanjutan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981', // Emerald 500
+                        dark: '#0f172a',    // Slate 900
+                        'dark-lighter': '#1e293b', // Slate 800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="p-2 bg-primary rounded-lg text-white">
+                        <i data-lucide="recycle" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-2xl font-bold tracking-tight text-white">Plastik<span class="text-primary">ku</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium hover:text-primary transition-colors">Beranda</a>
+                    <a href="#fitur" class="text-sm font-medium hover:text-primary transition-colors">Fitur</a>
+                    <a href="#tentang" class="text-sm font-medium hover:text-primary transition-colors">Tentang Kami</a>
+                    <a href="#kontak" class="bg-primary hover:bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all">Gabung Sekarang</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-white">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+                Ubah Sampah Menjadi <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-300">Masa Depan Berharga</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                Plastikku adalah platform inovatif yang menghubungkan pengelolaan sampah cerdas dengan teknologi berkelanjutan untuk ekosistem yang lebih bersih.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="px-8 py-4 bg-primary hover:bg-emerald-600 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-primary/25">
+                    Mulai Sekarang
+                </a>
+                <a href="#" class="px-8 py-4 bg-dark-lighter hover:bg-slate-700 text-white border border-slate-700 rounded-xl font-bold text-lg transition-all">
+                    Pelajari Lebih Lanjut
+                </a>
+            </div>
+            
+            <div class="mt-16 relative">
+                <div class="relative mx-auto max-w-5xl rounded-2xl border border-slate-800 bg-slate-900/50 p-2 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=1200&h=600" alt="Recycling process" class="rounded-xl object-cover w-full opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="fitur" class="py-20 bg-dark-lighter/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-3">FITUR UNGGULAN</h2>
+                <h3 class="text-3xl md:text-4xl font-bold">Teknologi Untuk Bumi Kita</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800 hover:border-primary/50 transition-all group">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i data-lucide="truck"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Penjemputan Cerdas</h4>
+                    <p class="text-gray-400">Jadwalkan penjemputan sampah plastik Anda langsung dari aplikasi dengan sistem rute yang efisien.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800 hover:border-primary/50 transition-all group text-white">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i data-lucide="coins"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Reward Plastik</h4>
+                    <p class="text-gray-400">Tukarkan sampah plastik Anda dengan poin yang dapat digunakan untuk berbagai voucher belanja dan tagihan.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800 hover:border-primary/50 transition-all group">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <i data-lucide="bar-chart-3"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Lacak Dampak</h4>
+                    <p class="text-gray-400">Lihat seberapa besar kontribusi Anda terhadap lingkungan melalui dashboard statistik yang informatif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="text-4xl md:text-5xl font-extrabold text-primary mb-2">500+</p>
+                    <p class="text-gray-400 font-medium">Ton Sampah Terolah</p>
+                </div>
+                <div>
+                    <p class="text-4xl md:text-5xl font-extrabold text-primary mb-2">12K</p>
+                    <p class="text-gray-400 font-medium">Pengguna Aktif</p>
+                </div>
+                <div>
+                    <p class="text-4xl md:text-5xl font-extrabold text-primary mb-2">85</p>
+                    <p class="text-gray-400 font-medium">Mitra UMKM</p>
+                </div>
+                <div>
+                    <p class="text-4xl md:text-5xl font-extrabold text-primary mb-2">10</p>
+                    <p class="text-gray-400 font-medium">Kota Besar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="kontak" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-primary to-emerald-800 rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-10 opacity-10">
+                    <i data-lucide="leaf" class="w-64 h-64"></i>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Siap Berkontribusi untuk Bumi?</h2>
+                <p class="text-emerald-100 text-lg mb-10 max-w-xl mx-auto">
+                    Bergabunglah dengan ribuan orang lainnya yang telah memulai langkah kecil untuk perubahan besar.
+                </p>
+                <button class="bg-white text-primary hover:bg-gray-100 px-10 py-4 rounded-full font-bold text-lg transition-all shadow-xl">
+                    Daftar Sekarang - Gratis
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-20 pb-10 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="p-2 bg-primary rounded-lg text-white">
+                            <i data-lucide="recycle" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-2xl font-bold tracking-tight text-white">Plastik<span class="text-primary">ku</span></span>
+                    </div>
+                    <p class="text-gray-400 max-w-sm">
+                        Membangun masa depan yang berkelanjutan melalui pengelolaan sampah plastik yang cerdas, efisien, dan menguntungkan semua pihak.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6">Tautan Cepat</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Beranda</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Layanan</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6">Ikuti Kami</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-900 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 Plastikku Indonesia. Seluruh hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Simple scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-2xl', 'py-1');
+            } else {
+                nav.classList.remove('shadow-2xl', 'py-1');
+            }
+        });
+    </script>
+</body>
+</html>
